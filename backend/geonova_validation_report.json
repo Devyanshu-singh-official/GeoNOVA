@@ -1,0 +1,26 @@
+{
+  "project": "GeoNOVA",
+  "validation_type": "Backend integration checks",
+  "backend_url": "http://127.0.0.1:8000",
+  "date_utc": "2026-11-15",
+  "summary": {
+    "total_checks": 1,
+    "passed": 0,
+    "failed": 1,
+    "all_passed": false
+  },
+  "results": [
+    {
+      "test": "Backend health",
+      "status": "FAIL",
+      "detail": "HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /api/health (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8000): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))"
+    }
+  ],
+  "scientific_validation_status": "NOT_ESTABLISHED_BY_THIS_SCRIPT",
+  "notes": [
+    "Synthetic observations are used for statistical tests.",
+    "NASA endpoint registration does not prove live data retrieval.",
+    "Frontend rendering is not tested by this script.",
+    "Scientific methods require independent validation."
+  ]
+}

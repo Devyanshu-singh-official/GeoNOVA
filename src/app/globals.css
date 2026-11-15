@@ -1,0 +1,225 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+:root {
+  --background: #080d16;
+  --panel: #101824;
+  --panel-light: #141f2e;
+  --border: rgba(148, 163, 184, 0.13);
+  --muted: #8492a6;
+  --text: #edf3fb;
+  --blue: #54a9ff;
+  --cyan: #4ce0d2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--background);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 70% 0%, rgba(26, 83, 130, 0.12), transparent 42%),
+    var(--background);
+}
+
+.sidebar {
+  width: 248px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  background: rgba(10, 16, 27, 0.96);
+  padding: 25px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  min-width: 0;
+  flex: 1;
+  padding: 30px 34px 45px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #173e66, #10243b);
+  border: 1px solid rgba(84,169,255,.35);
+  color: #70c8ff;
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 9px;
+  color: #8e9bae;
+  font-size: 13px;
+  text-align: left;
+  transition: .2s ease;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.nav-item:hover {
+  color: white;
+  background: rgba(255,255,255,.04);
+}
+
+.nav-item.active {
+  color: #8acaff;
+  background: rgba(54, 139, 216, .12);
+  border-color: rgba(84,169,255,.14);
+}
+
+.section-label {
+  color: #64748b;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  padding: 0 12px;
+  margin: 29px 0 11px;
+}
+
+.panel {
+  background: linear-gradient(145deg, rgba(19,30,45,.94), rgba(13,22,34,.96));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.panel-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e8f0fa;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #6d91b7;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  background: #172536;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.maplibregl-map {
+  width: 100%;
+  height: 100%;
+  background: #172536;
+}
+
+.maplibregl-ctrl-group {
+  background: #101824 !important;
+  border: 1px solid #26364a !important;
+}
+
+.maplibregl-ctrl-group button {
+  filter: invert(.85);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #42d6a4;
+  box-shadow: 0 0 10px rgba(66,214,164,.5);
+}
+
+.status-dot.offline {
+  background: #f3a84b;
+  box-shadow: 0 0 10px rgba(243,168,75,.35);
+}
+
+.data-card {
+  background: rgba(255,255,255,.018);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 15px;
+}
+
+@media (max-width: 1050px) {
+  .sidebar {
+    width: 210px;
+  }
+
+  .main-content {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 13px 15px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-navigation {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+    margin-top: 16px;
+  }
+
+  .nav-item {
+    width: auto;
+    white-space: nowrap;
+    padding: 9px 11px;
+  }
+
+  .section-label,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .main-content {
+    padding: 22px 14px;
+  }
+}
